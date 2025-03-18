@@ -32,8 +32,8 @@ set(MPFR_HASH SHA256=a4d97610ba8579d380b384b225187c250ef88cfe1d5e7226b8951937420
 set(MPC_VERSION 1.1.0)
 set(MPC_HASH SHA256=6985c538143c1208dcb1ac42cedad6ff52e267b47e5f970183a3e75125b43c2e)
 
-set(ISL_VERSION 0.20)
-set(ISL_HASH SHA256=b587e083eb65a8b394e833dea1744f21af3f0e413a448c17536b5549ae42a4c2)
+set(ISL_VERSION 0.24)
+set(ISL_HASH SHA512=aab3bddbda96b801d0f56d2869f943157aad52a6f6e6a61745edd740234c635c38231af20bc3f1a08d416a5e973a90e18249078ed8e4ae2f1d5de57658738e95)
 
 set(EXPAT_VERSION 2.2.6)
 set(EXPAT_HASH SHA256=17b43c2716d521369f82fc2dc70f359860e90fa440bea65b3b85f0b246ea81f2)
@@ -260,7 +260,7 @@ function(toolchain_deps toolchain_deps_dir toolchain_install_dir toolchain_suffi
 
     ExternalProject_add(isl${suffix}
         DEPENDS gmp${suffix}
-        URL http://isl.gforge.inria.fr/isl-${ISL_VERSION}.tar.bz2
+        URL https://gcc.gnu.org/pub/gcc/infrastructure/isl-${ISL_VERSION}.tar.bz2
         URL_HASH ${ISL_HASH}
         DOWNLOAD_DIR ${DOWNLOAD_DIR}
         CONFIGURE_COMMAND ${compiler_flags} ${wrapper_command} <SOURCE_DIR>/configure
@@ -273,7 +273,7 @@ function(toolchain_deps toolchain_deps_dir toolchain_install_dir toolchain_suffi
         )
 
     ExternalProject_add(expat${suffix}
-        URL http://downloads.sourceforge.net/sourceforge/expat/expat-${EXPAT_VERSION}.tar.bz2
+        URL https://github.com/libexpat/libexpat/releases/download/R_2_2_6/expat-${EXPAT_VERSION}.tar.bz2
         URL_HASH ${EXPAT_HASH}
         DOWNLOAD_DIR ${DOWNLOAD_DIR}
         CONFIGURE_COMMAND ${compiler_flags} ${wrapper_command} <SOURCE_DIR>/configure
